@@ -272,6 +272,5 @@
 	           END AS resultsText
     	from t_ecg where ecg_num = #{ecgNum}
     </select>
-
     
 </mapper>
