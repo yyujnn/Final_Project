@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<script src="resources/vendor/jquery/jquery.min.js"></script>
+
 <c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 
 <html class="no-js">
-
-
 
 <head>
     <!-- Basic Page Needs
@@ -131,7 +129,6 @@
     </section><!--/#Page header-->
 
     <section>
-    <section>
 
 
         <div class="container">
@@ -199,12 +196,19 @@
                                 <div>
                                     <p class="sinup_form_header">회원 가입</p>
                                 </div>
-                                <div class="form-group">
-                                    <label for="name">아이디 입력</label>
-                                    <input type="text" name="user_id" id="id" class="id">
-                                    <span class="error"></span>
-                                </div>
-
+                               
+									
+									    <div class="form-group">
+										        <label for="name">아이디 입력</label>
+										        <input type="text" name="user_id" id="id" class="id" style="margin-right:5px;" check_result="fail" required>
+										        <span class="error"></span>
+								 			<div class="form-group_check">
+	                                        	<button type="button" id="idck" onclick="id_overlap_check()" >중복 확인</button>
+											    <img src="resources/images/bluecheck.png" id="id_check_sucess" style="display: none; width: 25px; height: 25px;">
+	                                    	</div>
+									    </div>
+									
+								
                                 <div class="form-group">
                                     <label for="password">비밀번호 입력</label>
                                     <input type="password" name="user_pw" id="password" class="pass">
@@ -232,7 +236,7 @@
 
 
                                 <div class="CTA">
-                                    <button class="btn" type="submit"><span>회원가입</span></button>
+                                    <button class="btn" type="submit" onclick="idck_confirm()"><span>회원가입</span></button>
                                     <a href="#" class="switch">로그인</a>
                                 </div>
                             </form>
@@ -313,6 +317,67 @@
             </div>
         </div>
     </footer> <!-- /#footer -->
+    
+    <script type="text/javascript">
+	   
+
+	    function idck_confirm(){
+	    	
+	    	if ($('#id').attr("check_result") == "fail"){
+		        alert("아이디 중복체크를 해주시기 바랍니다.");
+		        $('#id').focus();
+		        return false;
+		      }
+	    }
+    
+	    function id_overlap_check() {
+			
+	    	// 중복확인 하고 아이디 수정하면 다시 체크 이미지 -> 중복확인 버튼으로
+	    	// check_result를 fail로 = 제출이 불가하도록
+	        //$('#id').change(function () {
+	          $('#id').on('input', function() {
+           	  $('#id_check_sucess').hide(); // 체크이미지 다시 숨김
+	          $('#idck').show(); // 중복확인 버튼 다시 띄우기
+	          $('#id').attr("check_result", "fail"); // input 태그 check_result를 fail로
+	        })
+
+			// 아무 값도 입력하지 않고 중복 확인 눌렀을때 - alert 만 띄움
+	        if ($('#id').val() == '') {
+	          alert('아이디를 입력해주세요.')
+	          return;
+	        }
+			
+	    	// 사용자가 id로 입력한 값 
+	        //var id_overlap_input = document.querySelector('input[name="user_id"]');
+	        var id_overlap_input = document.querySelector('#id');
+			console.log("input value >> ",id_overlap_input.value);
+	        
+			$.ajax({
+	          url: "idcheck",
+	          data: {
+	            user_id: id_overlap_input.value
+	          },
+	          datatype: 'json',
+	          success: function (data) {
+	        	  
+	            console.log("controller 에서 넘어온>> ",data['overlap']); // 겹쳤을때 fail 이라고 뜸
+	            if (data['overlap'] == "fail") {
+	              alert("이미 존재하는 아이디 입니다.");
+	              id_overlap_input.focus();
+	              return;
+	            } else {
+	              alert("사용가능한 아이디 입니다.");
+	              $('#id').attr("check_result", "success");
+	              $('#id_check_sucess').show();
+	              $('#idck').hide();
+	              return;
+	            }
+	          }
+	        });
+	      }
+			                
+    </script>
+    
 
     <!-- Template Javascript Files
 	================================================== -->

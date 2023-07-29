@@ -90,6 +90,12 @@ public interface HtMapper {
 	Ecg getEcgInfo(Integer ecg_num);
 
 	Health getHealthInfo(Integer h_num);
+
+	ArrayList<Community> getchoose();
+	
+	User findByUsername(String user_id);
+
+	ArrayList<Community> getbase();
 	
 	
 	

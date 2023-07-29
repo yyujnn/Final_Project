@@ -116,7 +116,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="portfolio-content" style="text-align: center;">
-                        <h2 style="text-align: left; font-weight: bold;">심전도 검사</h2>
+                        <h1 style="text-align: left; font-weight: bold;">심전도 검사</h1>
                         <!-- multistep form -->
                         <div id="msform">
                             <!-- progressbar -->

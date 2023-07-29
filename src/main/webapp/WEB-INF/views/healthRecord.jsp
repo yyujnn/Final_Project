@@ -151,7 +151,7 @@ $(document).ready(function () {
 
     <section class="works works-fit">
         <div class="container">
-            <h4 class="subtitle subtitle_start">나의 건강기록</h4>
+            <h1 class="subtitle subtitle_start" style = "font-size : 36px !important;">나의 건강기록</h1>
             <div class="wrapper">
 
                 <div class="clash-card barbarian">
@@ -197,7 +197,7 @@ $(document).ready(function () {
 
                     <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
                         <div class="one-third">
-                            <div class="stat">${empty LatestEcg.hr ? '-' : LatestEcg.hr}</div>
+                            <div class="stat">${LatestEcg.hr == 0 ? '-' : LatestEcg.hr}</div>
                             <div class="stat-value">평균BPM</div>
                         </div>
 
@@ -233,12 +233,12 @@ $(document).ready(function () {
 
                     <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
                         <div class="one-third">
-                            <div class="stat">${empty LatestBp.bp_high ? '-' : LatestBp.bp_high}</div>
+                            <div class="stat">${LatestBp.bp_high == 0 ? '-' : LatestBp.bp_high}</div>
                             <div class="stat-value">최고혈압</div>
                         </div>
 
                         <div class="one-third one-third_a">
-                            <div class="stat">${empty LatestBp.bp_low ? '-' : LatestBp.bp_low}</div>
+                            <div class="stat">${LatestBp.bp_low == 0 ? '-' : LatestBp.bp_low}</div>
                             <div class="stat-value">최저혈압</div>
                         </div>
 
@@ -263,12 +263,12 @@ $(document).ready(function () {
 
                     <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
                         <div class="one-third">
-                            <div class="stat">${empty LatestBs.bs_emp ? '-' : LatestBs.bs_emp}</div>
+                            <div class="stat">${LatestBs.bs_emp == 0 ? '-' : LatestBs.bs_emp}</div>
                             <div class="stat-value">공복혈당</div>
                         </div>
 
                         <div class="one-third one-third_a">
-                            <div class="stat">${empty LatestBs.bs_ful ? '-' : LatestBs.bs_ful}</div>
+                            <div class="stat">${LatestBs.bs_ful == 0 ? '-' : LatestBs.bs_ful}</div>
                             <div class="stat-value">식후혈당</div>
                         </div>
 

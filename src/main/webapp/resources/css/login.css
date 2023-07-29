@@ -497,3 +497,29 @@ footer p a:focus:hover {
     background-color: black;
     color: white;
 }
+
+
+.form form .form-group_check {
+    margin: 1px !important;
+    padding: 20px;
+    top: 12px;
+    right: -20px;
+    position: absolute;
+}
+
+.form form .form-group_check button{
+    background-color: #1875FF;
+    padding: 5px 10px;
+    border: 0;
+    color: white;
+    border-radius: 3px;
+    opacity: 0.8;
+}
+.form form .form-group_check button:hover{
+    opacity: 1;
+}
+
+.form form .form-group_check button:active{
+    opacity: 0.5;
+}
+

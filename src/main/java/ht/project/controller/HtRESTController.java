@@ -210,6 +210,34 @@ public class HtRESTController {
 	    // 뷰 이름을 반환합니다. 뷰 이름은 화면에 표시할 HTML 템플릿 파일명입니다.
 	    return detailEcg;
 	}
+	
+	// 중복 아이디 확인 
+	@RequestMapping("/idcheck")
+	public Map<Object, Object> idcheck(String user_id) {
+		
+		System.out.println("ajax로 받아온 >> "+user_id);
+		
+		Map<Object, Object> map = new HashMap<>();
+		String overlap;
+		
+			// 중복 검사 실패
+			User user = mapper.findByUsername(user_id);
+			System.out.println("User테이블 select 해온 것 >> "+user);
+			
+			
+	        if (user == null) {
+//	        String userid = user.getUser_id();
+	     	 overlap = "pass";
+				 
+			}else {
+				// 중복 검사 실패
+				overlap = "fail";
+			}
+	        map.put("overlap", overlap);
+	        System.out.println(map);
+	        return map;
+	
+	}
 
 	
 }

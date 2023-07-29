@@ -273,4 +273,20 @@
     	from t_ecg where ecg_num = #{ecgNum}
     </select>
     
+    <!-- getCommunityList 매퍼 -->
+	<select id="getchoose" resultType="ht.project.entity.Community">
+	    SELECT * FROM t_community WHERE category = '공지'
+	</select>
+	
+	<select id="findByUsername" parameterType="String" resultType="ht.project.entity.User">
+	 	SELECT user_id
+        FROM t_user
+        WHERE user_id = #{user_id}
+	</select>
+	
+	<!-- getCommunityList 매퍼 -->
+	<select id="getbase" resultType="ht.project.entity.Community">
+	    SELECT * FROM t_community WHERE category = '일반'
+	</select>
+    
 </mapper>

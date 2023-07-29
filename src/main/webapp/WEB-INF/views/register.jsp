@@ -186,8 +186,9 @@
 		                                    <div class="card_fr">
 		                                        <div class="front">
 		                                            <div class="subtitle-des_healthcard">
-		                                            <img src="resources/images/ecg_com_icon.png" alt=""> <strong>ECG</strong> <span class="subtitle-des_ef">
-		                                                ${empty LatestEcg.resultsText ? '결과없음' : LatestEcg.resultsText}
+		                                            <img src="resources/images/ecg_com_icon.png" alt=""> <strong>ECG</strong> 검사 결과는 <span class="subtitle-des_ef">
+		                                                ${empty LatestEcg.resultsText ? '결과없음' : LatestEcg.resultsText}이고 
+		                                                <span style="color: rgb(255, 118, 140);">♥ </span>  ${empty LatestEcg.hr ? '결과없음' : LatestEcg.hr}  bpm입니다.
 		                                            <br> <div class="wr_card_date">
 		                                              <span class="wr_card_date_1"><fmt:formatDate value="${LatestEcg.input_date}" pattern="yyyy년 MM월 dd일 a h:mm" />
 		                                             </span>
@@ -244,22 +245,23 @@
                 <div class="col-md-4" style="width : 30%;" !important>
                     <div class="sidebar">
                         <div class="categories widget">
-                            <h3 class="widget-head">Categories</h3>
+                            <h3 class="widget-head">카테고리</h3>
                             <ul>
                                 <li>
-                                    <a href="#" onclick="filterByCategory('공지')">◼ 공지사항</a> <span class="badge">1</span>
-                                    	
-                                </li>
-                                <li>
-                                    <a href="">◼ 일반</a> <span class="badge">2</span>
-                                </li>
-                                
-                                
+								    <a href="#" onclick = "location.href='${cpath}/choose'">◼ 공지사항</a>
+								</li>
+								<li>
+								    <a href="#" onclick="location.href='${cpath}/base'">◼ 일반</a>
+								</li>
+								<li>
+								    <a href="#"  onclick="location.href='${cpath}/community'">◼ 모두 보기</a>
+								    <!-- 'all' 값을 전달하여 모든 게시글을 보여주도록 처리 -->
+								</li>
+   
                             </ul>
                         </div>
-
                         <div class="recent-post widget">
-                            <h2>최근 게시물</h2>
+                            <h3>최근 게시물</h3>
                             <ul>
                                 <li>
                                     <a href="community">${comlist[0].content}</a><br>

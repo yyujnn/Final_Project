@@ -223,14 +223,6 @@ public class HtController {
 			Health LatestBp = mapper.getLatestBp(user_id);
 			Health LatestBs = mapper.getLatestBs(user_id);
 
-			BpResults LatestBpResult = LatestBp.determineBpResult();
-			LatestBp.setResultText(LatestBpResult.getResultText());
-			LatestBp.setCssClass(LatestBpResult.getCssClass());
-
-			BsResults LatestBsResult = LatestBs.determineBsResult();
-			LatestBs.setResultText(LatestBsResult.getResultText());
-			LatestBs.setCssClass(LatestBsResult.getCssClass());
-
 			// 결과에 따른 CSS 클래스를 설정하는 Map 생성
 			Map<String, String> cssClassMap = new HashMap<>();
 			cssClassMap.put("sr", "result_1");
@@ -243,7 +235,39 @@ public class HtController {
 				String result = LatestEcg.getResults();
 				String cssClass = cssClassMap.getOrDefault(result, "result_3");
 				LatestEcg.setCssClass(cssClass);
+			}else {
+				LatestEcg = new Ecg();
+				LatestEcg.setHr(0);
+				LatestEcg.setResultsText("-");
+				LatestEcg.setCssClass("-");
 			}
+			
+			// LatestBp 객체에 대해 조건에 따라 클래스를 동적으로 설정
+			if (LatestBp != null) {
+			    BpResults LatestBpResult = LatestBp.determineBpResult();
+			    LatestBp.setResultText(LatestBpResult.getResultText());
+			    LatestBp.setCssClass(LatestBpResult.getCssClass());
+			} else {
+			    LatestBp = new Health();
+			    LatestBp.setBp_high(0);
+			    LatestBp.setBp_low(0);
+			    LatestBp.setResultText("정보없음");
+			}
+
+			// LatestBs 객체에 대해 조건에 따라 클래스를 동적으로 설정
+			if (LatestBs != null) {
+			    BsResults LatestBsResult = LatestBs.determineBsResult();
+			    LatestBs.setResultText(LatestBsResult.getResultText());
+			    LatestBs.setCssClass(LatestBsResult.getCssClass());
+			} else {
+			    LatestBs = new Health();
+			    LatestBs.setBp_high(0);
+			    LatestBs.setBp_low(0);
+			    LatestBs.setResultText("정보없음");
+			}
+			
+			
+
 
 			model.addAttribute("LatestEcg", LatestEcg);
 			model.addAttribute("LatestBp", LatestBp);
@@ -480,5 +504,88 @@ public class HtController {
 	@RequestMapping(value = "/addwrite_frame", method = RequestMethod.GET)
 	public String addWriteFrame() {
 	    return "addwrite_frame";
+	}
+	
+	// 커뮤니티 페이지
+	@RequestMapping("/choose")
+	public String choose(HttpSession session, Model model, Community vo) {
+		String user_id = (String) session.getAttribute("user_id");
+		if (user_id != null) {
+			// 로그인이 되어 있는 경우
+			System.out.println("커뮤니티 userid : " + user_id);
+			User userInfo = mapper.getUserInfo(user_id);
+			model.addAttribute("userInfo", userInfo);
+		} else {
+			// 로그인이 되어 있지 않은 경우
+			System.out.println("커뮤니티: 로그인되어 있지 않음");
+			return "redirect:/login?returnUrl=/community";
+		}
+
+		// 커뮤니티 페이지 로직 처리 (리스트 출력)
+		ArrayList<Community> list = mapper.getchoose();
+
+		for (Community community : list) {
+			User user = mapper.getUserInfo(community.getUser_id());
+			community.setUser(user);
+		}
+
+		// 카드 출력 ecg , health
+		for (Community community : list) {
+            if (community.getEcg_num() != null) {
+                Ecg ecg = mapper.getEcgInfo(community.getEcg_num());
+                community.setEcg(ecg);
+            }
+            if (community.getH_num() != null) {
+                Health health = mapper.getHealthInfo(community.getH_num());
+                community.setHealth(health);
+            }
+        }
+		// p_num 컬럼을 내림차순으로 정렬
+		list.sort(Comparator.comparingInt(Community::getP_num).reversed());
+
+		model.addAttribute("comlist", list);
+
+		return "community";
+	}
+	// 커뮤니티 페이지
+	@RequestMapping("/base")
+	public String base(HttpSession session, Model model, Community vo) {
+		String user_id = (String) session.getAttribute("user_id");
+		if (user_id != null) {
+			// 로그인이 되어 있는 경우
+			System.out.println("커뮤니티 userid : " + user_id);
+			User userInfo = mapper.getUserInfo(user_id);
+			model.addAttribute("userInfo", userInfo);
+		} else {
+			// 로그인이 되어 있지 않은 경우
+			System.out.println("커뮤니티: 로그인되어 있지 않음");
+			return "redirect:/login?returnUrl=/community";
+		}
+
+		// 커뮤니티 페이지 로직 처리 (리스트 출력)
+		ArrayList<Community> list = mapper.getbase();
+
+		for (Community community : list) {
+			User user = mapper.getUserInfo(community.getUser_id());
+			community.setUser(user);
+		}
+
+		// 카드 출력 ecg , health
+		for (Community community : list) {
+            if (community.getEcg_num() != null) {
+                Ecg ecg = mapper.getEcgInfo(community.getEcg_num());
+                community.setEcg(ecg);
+            }
+            if (community.getH_num() != null) {
+                Health health = mapper.getHealthInfo(community.getH_num());
+                community.setHealth(health);
+            }
+        }
+		// p_num 컬럼을 내림차순으로 정렬
+		list.sort(Comparator.comparingInt(Community::getP_num).reversed());
+
+		model.addAttribute("comlist", list);
+
+		return "community";
 	}
 }
