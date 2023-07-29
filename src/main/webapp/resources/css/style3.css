@@ -19,8 +19,14 @@
     text-align: center;
     box-shadow: -1px 15px 30px -12px black;
     z-index: 9;
+    transform-origin: center;
+    transform: perspective(1200px) rotateY(15deg);
+    transition: 0.5s;
 }
 
+.wrapper :hover {
+    transform: perspective(1200px) rotate(0deg);
+}
 
 .clash-card__image {
     position: relative;

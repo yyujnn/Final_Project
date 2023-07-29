@@ -418,7 +418,7 @@
                 <div class="col-md-4" style="width : 30%;" !important>
                     <div class="sidebar">
                         <div class="categories widget">
-                            <h3 class="widget-head">Categories</h3>
+                            <h3 class="widget-head">카테고리</h3>
                             <ul>
                                 <li>
 								    <a href="#" onclick="filterPosts('공지')">◼ 공지사항</a>
@@ -437,7 +437,7 @@
                         </div>
 
                         <div class="recent-post widget">
-                            <h2>최근 게시물</h2>
+                            <h3>최근 게시물</h3>
                             <ul>
                                 <li>
                                     <span class="recent">${comlist[0].content}</span><br>

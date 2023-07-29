@@ -176,7 +176,7 @@ $(document).ready(function () {
                         </div>
 
                         <div class="one-third no-border">
-                            <div class="stat-value stat_none">정보 변경</div>
+                            <div class="stat-value stat_none">접속 중</div>
                         </div>
 
                     </div>
