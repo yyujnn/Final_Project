@@ -453,7 +453,7 @@
                 
                 // 캡쳐 전에 scale을 2로 설정한다.
                 html2canvas(document.querySelector(".capture"), { scale: 2 }).then(canvas => {
-                    saveAs(canvas.toDataURL('image/png'),"capture-test1.png");
+                    saveAs(canvas.toDataURL('image/png'),"혈당결과.png");
                     
                      // 캡쳐가 끝난 후에 다시 그림자 스타일 제거
                      outerL.style.border  = "";

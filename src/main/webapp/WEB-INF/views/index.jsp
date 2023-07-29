@@ -159,7 +159,7 @@ Slider Section Start
                             공간을 넘어 건강을 디자인하다. <br> 당신, 오직 당신을 위한 특별한 AI 헬스케어 서비스를 만나보세요.
                         </h2>
                         <a class="btn-lines dark light wow fadeInUp animated smooth-scroll btn btn-default btn-green"
-                            data-wow-delay=".9s" href="#works" data-section="#works">바로가기</a>
+                            data-wow-delay=".9s" href="#about" data-section="#works">바로가기</a>
 
                     </div>
                 </div>
@@ -169,43 +169,9 @@ Slider Section Start
 
     <!--
 ==================================================
-About Section Start
-================================================== -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
-                        <h2 class="hearTrack_header">
-                            HearTrack은?
-                        </h2>
-                        <p>
-                            HearTrack은 '공간을 뛰어넘는 의료 서비스를 제공하는 사회'를 <br> 만들어 간다는 기본 목표와 세계 속의 이정표가 되자는 소망으로 <br> 만들어진 한국
-                            고유의 브랜드입니다.
-                        </p>
-                        <p>
-                            HearTrack is a unique Korean brand created with the basic goal of <br> creating a society
-                            that provides medical services beyond space <br> and the hope of becoming a landmark in the
-                            world.
-                        </p>
-                    </div>
-
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="block wow fadeInRight" data-wow-delay=".3s" data-wow-duration="500ms">
-                        <img src="https://cdn.pixabay.com/photo/2020/08/03/09/39/medical-5459630_1280.png" alt="" style="opacity: 0.9;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> <!-- /#about -->
-
-
-    <!--
-==================================================
 Portfolio Section Start
 ================================================== -->
-    <section id="works" class="works">
+    <section id="works" class="works" style = "background-color : #fff !important;">
         <div class="container">
             <div class="section-heading">
                 <h1 class="title wow fadeInDown" data-wow-delay=".3s" style="font-weight: bold !important;">건강 체크하기</h1>
@@ -359,6 +325,43 @@ Portfolio Section Start
             </div>
         </div>
     </section> <!-- #works -->
+    <!--
+==================================================
+About Section Start
+================================================== -->
+    <section id="about" style = "background-color : #fcfcfc !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
+                        <h2 class="hearTrack_header">
+                            HearTrack은?
+                        </h2>
+                        <p>
+                            HearTrack은 '공간을 뛰어넘는 의료 서비스를 제공하는 사회'를 <br> 만들어 간다는 기본 목표와 세계 속의 이정표가 되자는 소망으로 <br> 만들어진 한국
+                            고유의 브랜드입니다.
+                        </p>
+                        <p>
+                            HearTrack is a unique Korean brand created with the basic goal of <br> creating a society
+                            that provides medical services beyond space <br> and the hope of becoming a landmark in the
+                            world.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="block wow fadeInRight" data-wow-delay=".3s" data-wow-duration="500ms">
+                        <img src="https://cdn.pixabay.com/photo/2020/08/03/09/39/medical-5459630_1280.png" alt="" style="opacity: 0.9;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- /#about -->
+    
+    
+    
+    
+    
     <section id="contact-section">
       <!--  지도 들어온 부분이에요 -->
       <div class="container">
@@ -391,7 +394,8 @@ Portfolio Section Start
 ==================================================
 Portfolio Section Start
 ================================================== -->
-     <section id="feature">
+
+     <section id="feature" style = "background-color : #fcfcfc !important;">
         <div class="container">
             <div class="section-heading">
                 <h1 class="title wow fadeInDown" data-wow-delay=".3s">자주 묻는 질문 <span class="top6">TOP6</span></h1>
@@ -409,7 +413,7 @@ Portfolio Section Start
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading"> <strong> 내 건강기록은 어디에?</strong></h4>
-                            <p>화면 우측 상단 <a href="gallery.html">건강기록</a>에서 <br> 입력하셨던 기록을 확인할 수 있습니다</p>
+                            <p>화면 우측 상단 <a href="healthRecord">건강기록</a>에서 <br> 입력하셨던 기록을 확인할 수 있습니다</p>
                         </div>
                     </div>
                 </div>
@@ -435,7 +439,7 @@ Portfolio Section Start
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading"><strong> 개인정보와 건강정보 처리는?</strong></h4>
-                            <p><a href="">개인정보</a>와 <a href="">건강정보</a>는 이용약관에 <br> 의거하여 처리 및 보호하고 있습니다 </p>
+                            <p><a href="">개인정보</a>와 <a href="healthRecord">건강정보</a>는 이용약관에 <br> 의거하여 처리 및 보호하고 있습니다 </p>
                         </div>
                     </div>
                 </div>
@@ -498,7 +502,7 @@ Portfolio Section Start
                             </h1>
                             <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">당신이 경험한 이야기를 우리에게
                                 나누어 주세요.<br>우리는 당신의 이야기로 더욱 만족스러운 서비스를 제공 드릴 것을 약속드립니다</p>
-                            <a href="https://forms.gle/JH1Ya6SnKUn6boTA6"
+                            <a href="https://forms.gle/JH1Ya6SnKUn6boTA6" target='_blank'
                                 class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s"
                                 data-wow-duration="500ms">참여하기</a>
                     </div>

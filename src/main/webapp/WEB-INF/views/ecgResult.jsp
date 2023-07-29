@@ -396,7 +396,7 @@
             
             // 캡쳐 전에 scale을 2로 설정한다.
             html2canvas(document.querySelector(".ECG_record"), { scale: 2 }).then(canvas => {
-                saveAs(canvas.toDataURL('image/png'),"capture-test1.png");
+                saveAs(canvas.toDataURL('image/png'),"ECG 결과.png");
                 
 
                 // 캡쳐가 끝난 후에 다시 scale을 원래대로 돌려놓는다.
