@@ -196,8 +196,6 @@
                                 <div>
                                     <p class="sinup_form_header">회원 가입</p>
                                 </div>
-                               
-									
 									    <div class="form-group">
 										        <label for="name">아이디 입력</label>
 										        <input type="text" name="user_id" id="id" class="id" style="margin-right:5px;" check_result="fail" required>
@@ -207,7 +205,6 @@
 											    <img src="resources/images/bluecheck.png" id="id_check_sucess" style="display: none; width: 25px; height: 25px;">
 	                                    	</div>
 									    </div>
-									
 								
                                 <div class="form-group">
                                     <label for="password">비밀번호 입력</label>
